@@ -15,6 +15,7 @@ jobs:
       - name: Run tests
         run: npm run test
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,3 +24,8 @@ jobs:
         run: npm ci
       - name: Build project
         run: npm run build
+  issue-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list github issues
+        run: echo ${{ toJSON(github.event) }}

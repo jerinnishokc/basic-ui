@@ -7,6 +7,6 @@ describe('App', () => {
     render(<App />)
     
     const text = screen.getByText('Click on the Vite and React logos to learn more')
-    expect(text).not.toBeInTheDocument()
+    expect(text).toBeInTheDocument()
   })
 })
